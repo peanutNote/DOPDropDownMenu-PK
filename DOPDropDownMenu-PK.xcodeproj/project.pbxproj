@@ -11,8 +11,15 @@
 		1E20CF751D310100001659C1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E20CF741D310100001659C1 /* AppDelegate.m */; };
 		1E20CF781D310100001659C1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E20CF771D310100001659C1 /* ViewController.m */; };
 		1E20CF7B1D310100001659C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF791D310100001659C1 /* Main.storyboard */; };
-		1E20CF7D1D310100001659C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF7C1D310100001659C1 /* Assets.xcassets */; };
 		1E20CF801D310100001659C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF7E1D310100001659C1 /* LaunchScreen.storyboard */; };
+		1E20CF8D1D310119001659C1 /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E20CF891D310119001659C1 /* DOPDropDownMenu.m */; };
+		1E20CF8E1D310119001659C1 /* icon_chose_arrow_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF8A1D310119001659C1 /* icon_chose_arrow_nor@2x.png */; };
+		1E20CF8F1D310119001659C1 /* icon_chose_arrow_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF8B1D310119001659C1 /* icon_chose_arrow_sel@2x.png */; };
+		1E20CF901D310119001659C1 /* icon_chose_bottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF8C1D310119001659C1 /* icon_chose_bottom@2x.png */; };
+		1E20CF921D31022C001659C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF911D31022C001659C1 /* Assets.xcassets */; };
+		1E20CF981D310F6F001659C1 /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF951D310F6F001659C1 /* demo.gif */; };
+		1E20CF991D310F6F001659C1 /* demo1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF961D310F6F001659C1 /* demo1.gif */; };
+		1E20CF9A1D310F6F001659C1 /* demo2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1E20CF971D310F6F001659C1 /* demo2.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +30,17 @@
 		1E20CF761D310100001659C1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1E20CF771D310100001659C1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1E20CF7A1D310100001659C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1E20CF7C1D310100001659C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E20CF7F1D310100001659C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E20CF811D310100001659C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1E20CF881D310119001659C1 /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
+		1E20CF891D310119001659C1 /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
+		1E20CF8A1D310119001659C1 /* icon_chose_arrow_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_arrow_nor@2x.png"; sourceTree = "<group>"; };
+		1E20CF8B1D310119001659C1 /* icon_chose_arrow_sel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_arrow_sel@2x.png"; sourceTree = "<group>"; };
+		1E20CF8C1D310119001659C1 /* icon_chose_bottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_chose_bottom@2x.png"; sourceTree = "<group>"; };
+		1E20CF911D31022C001659C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E20CF951D310F6F001659C1 /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
+		1E20CF961D310F6F001659C1 /* demo1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo1.gif; sourceTree = "<group>"; };
+		1E20CF971D310F6F001659C1 /* demo2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo2.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,12 +73,13 @@
 		1E20CF6F1D310100001659C1 /* DOPDropDownMenu-PK */ = {
 			isa = PBXGroup;
 			children = (
+				1E20CF871D310119001659C1 /* DOPDropDownMenu */,
 				1E20CF731D310100001659C1 /* AppDelegate.h */,
 				1E20CF741D310100001659C1 /* AppDelegate.m */,
 				1E20CF761D310100001659C1 /* ViewController.h */,
 				1E20CF771D310100001659C1 /* ViewController.m */,
+				1E20CF911D31022C001659C1 /* Assets.xcassets */,
 				1E20CF791D310100001659C1 /* Main.storyboard */,
-				1E20CF7C1D310100001659C1 /* Assets.xcassets */,
 				1E20CF7E1D310100001659C1 /* LaunchScreen.storyboard */,
 				1E20CF811D310100001659C1 /* Info.plist */,
 				1E20CF701D310100001659C1 /* Supporting Files */,
@@ -74,9 +90,24 @@
 		1E20CF701D310100001659C1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E20CF951D310F6F001659C1 /* demo.gif */,
+				1E20CF961D310F6F001659C1 /* demo1.gif */,
+				1E20CF971D310F6F001659C1 /* demo2.gif */,
 				1E20CF711D310100001659C1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1E20CF871D310119001659C1 /* DOPDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				1E20CF881D310119001659C1 /* DOPDropDownMenu.h */,
+				1E20CF891D310119001659C1 /* DOPDropDownMenu.m */,
+				1E20CF8A1D310119001659C1 /* icon_chose_arrow_nor@2x.png */,
+				1E20CF8B1D310119001659C1 /* icon_chose_arrow_sel@2x.png */,
+				1E20CF8C1D310119001659C1 /* icon_chose_bottom@2x.png */,
+			);
+			path = DOPDropDownMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +168,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E20CF801D310100001659C1 /* LaunchScreen.storyboard in Resources */,
-				1E20CF7D1D310100001659C1 /* Assets.xcassets in Resources */,
+				1E20CF981D310F6F001659C1 /* demo.gif in Resources */,
+				1E20CF8F1D310119001659C1 /* icon_chose_arrow_sel@2x.png in Resources */,
+				1E20CF991D310F6F001659C1 /* demo1.gif in Resources */,
+				1E20CF901D310119001659C1 /* icon_chose_bottom@2x.png in Resources */,
+				1E20CF8E1D310119001659C1 /* icon_chose_arrow_nor@2x.png in Resources */,
+				1E20CF921D31022C001659C1 /* Assets.xcassets in Resources */,
+				1E20CF9A1D310F6F001659C1 /* demo2.gif in Resources */,
 				1E20CF7B1D310100001659C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E20CF781D310100001659C1 /* ViewController.m in Sources */,
+				1E20CF8D1D310119001659C1 /* DOPDropDownMenu.m in Sources */,
 				1E20CF751D310100001659C1 /* AppDelegate.m in Sources */,
 				1E20CF721D310100001659C1 /* main.m in Sources */,
 			);
@@ -302,6 +340,7 @@
 				1E20CF861D310100001659C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
