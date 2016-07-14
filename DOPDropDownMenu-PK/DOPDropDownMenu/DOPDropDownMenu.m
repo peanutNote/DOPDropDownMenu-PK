@@ -490,6 +490,11 @@
     //calculate index
     NSInteger tapIndex = touchPoint.x / (self.frame.size.width / _numOfMenu);
     
+    _currentSelectItemArray = [NSMutableArray array];
+    for (NSInteger index = 0; index < [_dataSource menu:self numberOfRowsInColumn:tapIndex]; ++index) {
+        [_currentSelectItemArray addObject:@(0)];
+    }
+    
     for (int i = 0; i < _numOfMenu; i++) {
         if (i != tapIndex) {
             [self animateIndicator:_indicators[i] Forward:NO complete:^{
