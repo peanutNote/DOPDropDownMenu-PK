@@ -490,9 +490,11 @@
     //calculate index
     NSInteger tapIndex = touchPoint.x / (self.frame.size.width / _numOfMenu);
     
-    _currentSelectItemArray = [NSMutableArray array];
-    for (NSInteger index = 0; index < [_dataSource menu:self numberOfRowsInColumn:tapIndex]; ++index) {
-        [_currentSelectItemArray addObject:@(0)];
+    if (_currentSelectedMenudIndex != tapIndex) {
+        _currentSelectItemArray = [NSMutableArray array];
+        for (NSInteger index = 0; index < [_dataSource menu:self numberOfRowsInColumn:tapIndex]; ++index) {
+            [_currentSelectItemArray addObject:@(0)];
+        }
     }
     
     for (int i = 0; i < _numOfMenu; i++) {
@@ -830,13 +832,18 @@
         
         if (_dataSourceFlags.numberOfUnitsInItem && [_dataSource menu:self numberOfUnitsInItem:indexPath.row row:currentSelectedMenudRow column:_currentSelectedMenudIndex]> 0){
             cell.accessoryView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_chose_arrow_nor"] highlightedImage:[UIImage imageNamed:@"icon_chose_arrow_sel"]];
+            NSInteger currentSelectedMenudItem = [_currentSelectItemArray[currentSelectedMenudRow] integerValue];
+            if (indexPath.row == currentSelectedMenudItem) {
+                [_secendTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:currentSelectedMenudItem inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+            }
         } else {
             cell.accessoryView = nil;
+            if ([cell.textLabel.text isEqualToString:[(CATextLayer *)[_titles objectAtIndex:_currentSelectedMenudIndex] string]]) {
+                [_secendTableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionNone];
+            }
         }
         cell.backgroundColor = kCellBgColor;
         
-        NSInteger currentSelectedMenudItem = [_currentSelectItemArray[currentSelectedMenudRow] integerValue];
-        [_secendTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:currentSelectedMenudItem inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     } else {
         NSInteger currentSelectedMenudRow = [_currentSelectRowArray[_currentSelectedMenudIndex] integerValue];
         NSInteger currentSelectedMenudItem = [_currentSelectItemArray[currentSelectedMenudRow] integerValue];
@@ -848,7 +855,7 @@
             }
            
             if ([cell.textLabel.text isEqualToString:[(CATextLayer *)[_titles objectAtIndex:_currentSelectedMenudIndex] string]]) {
-                [_thirdTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0] animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+                [_thirdTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
             }
         }
         cell.backgroundColor = [UIColor whiteColor];
@@ -860,8 +867,6 @@
 #pragma mark - tableview delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    
     if (_firstTableView == tableView) {
         BOOL haveItem = [self confiMenuWithSelectRow:indexPath.row];
         BOOL isClickHaveItemValid = self.isClickHaveItemValid ? YES : haveItem;
@@ -892,14 +897,9 @@
 }
 
 - (BOOL )confiMenuWithSelectRow:(NSInteger)row {
-    
     _currentSelectRowArray[_currentSelectedMenudIndex] = @(row);
-    
-    
     CATextLayer *title = (CATextLayer *)_titles[_currentSelectedMenudIndex];
-    
     if (_dataSourceFlags.numberOfItemsInRow && [_dataSource menu:self numberOfItemsInRow:row column:_currentSelectedMenudIndex]> 0) {
-        
         // 有双列表 有item数据
         if (self.isClickHaveItemValid) {
             title.string = [_dataSource menu:self titleForRowAtIndexPath:[DOPIndexPath indexPathWithCol:_currentSelectedMenudIndex row:row]];
@@ -918,7 +918,6 @@
         return NO;
         
     } else {
-        
         title.string = [_dataSource menu:self titleForRowAtIndexPath:
                         [DOPIndexPath indexPathWithCol:_currentSelectedMenudIndex row:self.isRemainMenuTitle ? 0 : row]];
         if (!_isKeepDOPMenu) {
