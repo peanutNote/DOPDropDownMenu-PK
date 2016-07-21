@@ -315,7 +315,7 @@
         [self.layer addSublayer:title];
         [tempTitles addObject:title];
         //indicator
-        CAShapeLayer *indicator = [self createIndicatorWithColor:self.indicatorColor andPosition:CGPointMake((i + 1)*separatorLineInterval - 10, self.frame.size.height / 2)];
+        CAShapeLayer *indicator = [self createIndicatorWithColor:self.indicatorColor andPosition:CGPointMake(title.frame.origin.x + title.frame.size.width + 7, self.frame.size.height / 2)];
         [self.layer addSublayer:indicator];
         [tempIndicators addObject:indicator];
         
@@ -499,8 +499,8 @@
     
     for (int i = 0; i < _numOfMenu; i++) {
         if (i != tapIndex) {
-            [self animateIndicator:_indicators[i] Forward:NO complete:^{
-                [self animateTitle:_titles[i] show:NO complete:^{
+            [self animateTitle:_titles[i] show:NO complete:^{
+                [self animateIndicator:_indicators[i] title:_titles[i] Forward:NO complete:^{
                     
                 }];
             }];
@@ -536,7 +536,7 @@
 }
 
 #pragma mark - animation method
-- (void)animateIndicator:(CAShapeLayer *)indicator Forward:(BOOL)forward complete:(void(^)())complete {
+- (void)animateIndicator:(CAShapeLayer *)indicator title:(CATextLayer *)title Forward:(BOOL)forward complete:(void(^)())complete {
     [CATransaction begin];
     [CATransaction setAnimationDuration:0.25];
     [CATransaction setAnimationTimingFunction:[CAMediaTimingFunction functionWithControlPoints:0.4 :0.0 :0.2 :1.0]];
@@ -550,6 +550,11 @@
         [indicator addAnimation:anim forKey:anim.keyPath];
         [indicator setValue:anim.values.lastObject forKeyPath:anim.keyPath];
     }
+    
+    CGRect indicatorFrame = indicator.frame;
+    indicatorFrame.origin.x = title.frame.origin.x + title.frame.size.width + 3;
+    [indicator setFrame:indicatorFrame];
+    [CATransaction commit];
     
     [CATransaction commit];
     
@@ -694,8 +699,8 @@
 
 - (void)animateIdicator:(CAShapeLayer *)indicator background:(UIView *)background tableView:(UITableView *)tableView title:(CATextLayer *)title forward:(BOOL)forward complecte:(void(^)())complete{
     
-    [self animateIndicator:indicator Forward:forward complete:^{
-        [self animateTitle:title show:forward complete:^{
+    [self animateTitle:title show:forward complete:^{
+        [self animateIndicator:indicator title:title Forward:forward complete:^{
             [self animateBackGroundView:background show:forward complete:^{
                 [self animateTableView:tableView show:forward complete:^{
                 }];

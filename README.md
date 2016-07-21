@@ -4,6 +4,7 @@
 * 主要功能支持三级菜单
 * 支持选择后保持菜单展开
 * 优化三角指示图标颜色设置后收起菜单后复原的问题
+* UI展示修改：三角指示动态保持距文字为3
 
 ## 应用截图
 ![image](https://github.com/peanutNote/DOPDropDownMenu-PK/blob/master/DOPDropDownMenu-PK/demo.gif)
